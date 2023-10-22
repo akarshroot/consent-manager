@@ -1,5 +1,5 @@
-const getToken = () => {
-  res.send(200)
+const getToken = (req, res, next) => {
+  next();
 }
 
 module.exports = { getToken };

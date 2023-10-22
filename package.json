@@ -19,7 +19,7 @@
     "privacy"
   ],
   "author": "Akarsh Tripathi",
-  "license": "ISC",
+  "license": "GNU GPL",
   "bugs": {
     "url": "https://github.com/akarshroot/consent-manager/issues"
   },
@@ -28,6 +28,7 @@
     "config": "^3.3.9",
     "env-cmd": "^10.1.0",
     "express": "^4.18.2",
+    "mongoose": "^7.6.3",
     "morgan": "^1.10.0",
     "winston": "^3.11.0"
   },
