@@ -1,7 +1,16 @@
-const app = require('./app');
-const { logger } = require('./util/logger');
-const config = require('config');
+/* eslint-disable global-require */
+const {
+  logger,
+} = require('./util/logger');
+const { connectDB } = require('./util/database');
 
-const server = app.listen(config.APP.PORT, (err) => {
-    if(!err) logger.info(`Server running on ${config.APP.PORT}`);
-})
+const bootstrap = async () => {
+  try {
+    await connectDB();
+    require('./app');
+  } catch (error) {
+    logger.error(error.message);
+  }
+};
+
+bootstrap();
