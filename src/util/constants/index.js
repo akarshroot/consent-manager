@@ -14,6 +14,7 @@ const constants = {
   },
   STANDARD_ERROR_MESSAGES: {
     500: 'Internal Server Error',
+    403: 'You do not have authority to perform this action. Please contact your administrator.',
   },
 };
 

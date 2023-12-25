@@ -16,10 +16,10 @@ const authenticate = errorDecorator(async (req, res, next) => {
 });
 
 const register = errorDecorator(async (req, _res, next) => {
-  const { partner } = req.entityData;
+  const { partner, permissions } = req.entityData;
   const { username, password } = req.body;
   const { source } = req.query;
-  const data = await service.register({ username, password, partner, source });
+  const data = await service.register({ username, password, partner, source, permissions });
   next(data);
 });
 

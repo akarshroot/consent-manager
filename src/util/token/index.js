@@ -4,8 +4,6 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const boom = require('@hapi/boom');
 
-const { logger } = require('../logger');
-
 const validateToken = ({ token }) => {
   const secret = fs.readFileSync(path.join(__dirname, '../../../config/public.key'), 'utf-8');
   try {

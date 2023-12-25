@@ -14,6 +14,18 @@ const EntitySchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
+  permissions: {
+    read: {
+      type: Boolean,
+      required: true,
+      default: true,
+    },
+    write: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  },
   metadata: {
     source: {
       type: String,

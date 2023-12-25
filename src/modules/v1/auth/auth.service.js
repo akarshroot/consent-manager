@@ -25,6 +25,10 @@ const authenticate = async ({ username, password }) => {
     const payload = {
       username,
       partner: _.get(entityData, 'partner'),
+      permissions: {
+        read: entityData.permissions.read,
+        write: entityData.permissions.write,
+      },
     };
     entityData = _.omit(entityData.toObject(), ['password', '_id', '__v']);
     const token = mintToken({ payload });
@@ -34,8 +38,11 @@ const authenticate = async ({ username, password }) => {
   throw boom.unauthorized('Invalid Credentials');
 };
 
-const register = async ({ username, password, partner, source }) => {
+const register = async ({ username, password, partner, source, permissions = { read: false, write: false } }) => {
   const { Entity, Partner } = models;
+  if (!permissions.write) {
+    throw boom.forbidden(constants.STANDARD_ERROR_MESSAGES[403]);
+  }
   let entityData = await Entity({ username, password, partner, metadata: { source } }).save();
   await Partner.findOneAndUpdate({ _id: partner }, { $push: { rbac: _.get(entityData, '_id') } });
   entityData = _.omit(entityData.toObject(), ['password', '_id', '__v']);
