@@ -32,12 +32,12 @@ const EntitySchema = new mongoose.Schema({
       required: true,
     },
   },
-  updated_at: {
+  updatedAt: {
     type: Date,
     default: Date.now,
     required: true,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now,
     immutable: true,

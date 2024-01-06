@@ -1,4 +1,3 @@
-const joi = require('joi');
 const boom = require('@hapi/boom');
 const errorDecorator = require('../util/error-decorator');
 

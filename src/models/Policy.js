@@ -1,15 +1,24 @@
 const mongoose = require('mongoose');
 
-const PartnerSchema = new mongoose.Schema({
-  email: {
+const PolicySchema = new mongoose.Schema({
+  _id: false,
+  policyId: {
     type: String,
     required: true,
+    unique: true,
   },
-  rbac: [
+  partner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  title: {
+    type: String,
+    requried: true,
+  },
+  attributes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Entity',
-      required: true,
+      ref: 'PolicyAttribute',
     },
   ],
   updatedAt: {
@@ -25,4 +34,4 @@ const PartnerSchema = new mongoose.Schema({
   },
 });
 
-module.exports = PartnerSchema;
+module.exports = PolicySchema;
