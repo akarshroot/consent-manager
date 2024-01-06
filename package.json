@@ -1,6 +1,6 @@
 {
   "name": "consent-manager",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This repo contains the source code for the backend of project — consent-manager. Main aim of this server is to facilitate CRUD operations to concurrently maintain the record for consent of customers of various partner companies.",
   "main": "/src/index.js",
   "scripts": {
@@ -25,19 +25,19 @@
   },
   "homepage": "https://github.com/akarshroot/consent-manager#readme",
   "dependencies": {
-    "@hapi/boom": "^10.0.1",
-    "bcrypt": "^5.1.1",
-    "config": "^3.3.9",
-    "cookie-parser": "^1.4.6",
-    "env-cmd": "^10.1.0",
-    "express": "^4.18.2",
-    "joi": "^17.11.0",
-    "joi-objectid": "^4.0.2",
-    "jsonwebtoken": "^9.0.2",
-    "lodash": "^4.17.21",
-    "mongoose": "^7.6.3",
-    "morgan": "^1.10.0",
-    "winston": "^3.11.0"
+    "@hapi/boom": "10.0.1",
+    "bcrypt": "5.1.1",
+    "config": "3.3.9",
+    "cookie-parser": "1.4.6",
+    "env-cmd": "10.1.0",
+    "express": "4.18.2",
+    "joi": "17.11.0",
+    "joi-objectid": "4.0.2",
+    "jsonwebtoken": "9.0.2",
+    "lodash": "4.17.21",
+    "mongoose": "7.6.3",
+    "morgan": "1.10.0",
+    "winston": "3.11.0"
   },
   "devDependencies": {
     "eslint": "^8.52.0",
