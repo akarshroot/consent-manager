@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const PolicySchema = new mongoose.Schema({
-  _id: false,
   policyId: {
     type: String,
     required: true,
@@ -21,6 +20,10 @@ const PolicySchema = new mongoose.Schema({
       ref: 'PolicyAttribute',
     },
   ],
+  description: {
+    type: String,
+    default: '',
+  },
   updatedAt: {
     type: Date,
     default: Date.now,

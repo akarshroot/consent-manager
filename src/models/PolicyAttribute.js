@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const PolicyAttributeSchema = new mongoose.Schema({
-  _id: false,
   attId: {
     type: String,
     required: true,
