@@ -9,10 +9,23 @@ const postPolicy = errorDecorator(async (req, _res, next) => {
 });
 
 const consent = errorDecorator(async (req, _res, next) => {
-  
+  const { partner } = req.entityData;
+  const { policy_id: clientPolicyId } = req.params;
+  const { uid, timestamp } = req.body;
+  const data = await service.consent({ clientPolicyId, uid, timestamp, partner });
+  next(data);
+});
+
+const fetchConsent = errorDecorator(async (req, _res, next) => {
+  const { partner } = req.entityData;
+  const { uid } = req.params;
+  const { policy_id:policyId = '' } = req.query;
+  const data = await service.fetchConsent({ clientPolicyId: policyId, uid, partner });
+  next(data);
 });
 
 module.exports = {
   postPolicy,
   consent,
+  fetchConsent,
 };

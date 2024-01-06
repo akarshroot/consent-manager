@@ -1,28 +1,26 @@
 const mongoose = require('mongoose');
 
-const PolicySchema = new mongoose.Schema({
+const ConsentSchema = new mongoose.Schema({
+  policyId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   clientPolicyId: {
     type: String,
     required: true,
-    unique: true,
   },
   partner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  title: {
+  uid: {
     type: String,
-    requried: true,
+    required: true,
+    unique: true,
   },
-  attributes: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'PolicyAttribute',
-    },
-  ],
-  description: {
-    type: String,
-    default: '',
+  timestamp: {
+    type: Date,
+    required: true,
   },
   updatedAt: {
     type: Date,
@@ -37,4 +35,6 @@ const PolicySchema = new mongoose.Schema({
   },
 });
 
-module.exports = PolicySchema;
+ConsentSchema.index({ policyId: 1, uid: 1, partner: 1 }, { unique: true });
+
+module.exports = ConsentSchema;

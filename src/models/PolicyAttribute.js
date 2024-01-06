@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const PolicyAttributeSchema = new mongoose.Schema({
-  attId: {
-    type: String,
+  partner: {
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique: true,
   },
   title: {
     type: String,
@@ -19,5 +18,7 @@ const PolicyAttributeSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+PolicyAttributeSchema.index({ partner: 1, title: 1 }, { unique: true });
 
 module.exports = PolicyAttributeSchema;

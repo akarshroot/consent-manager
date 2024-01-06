@@ -10,7 +10,6 @@ const connectDB = async () => {
     logger.info('Database connected');
     setupModels();
   } catch (error) {
-    console.log(error);
     logger.error(error.message);
     process.exit(1);
   }

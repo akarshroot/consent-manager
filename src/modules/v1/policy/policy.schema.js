@@ -26,7 +26,18 @@ const consentSchema = joi.object().keys({
   }),
 });
 
+const fetchConsentSchema = joi.object().keys({
+  entityData: headerSchema.required(),
+  params: joi.object().keys({
+    uid: joi.string().required(),
+  }),
+  query: joi.object().keys({
+    policy_id: joi.string().optional(),
+  }),
+});
+
 module.exports = {
   policySchema,
   consentSchema,
+  fetchConsentSchema,
 };
