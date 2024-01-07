@@ -12,6 +12,7 @@ const bootstrap = async () => {
     await connectDB();
     config.MODULE.AUTH.JWT_PRIVATE_KEY = fs.readFileSync(path.join(__dirname, '../config/private.key'), 'utf-8');
     config.MODULE.AUTH.JWT_PUBLIC_KEY = fs.readFileSync(path.join(__dirname, '../config/public.key'), 'utf-8');
+    logger.info('JWT Secrets Loaded.');
     require('./app');
   } catch (error) {
     logger.error(error.message);
