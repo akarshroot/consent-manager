@@ -1,6 +1,6 @@
 {
   "name": "consent-manager",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "This repo contains the source code for the backend of project — consent-manager. Main aim of this server is to facilitate CRUD operations to concurrently maintain the record for consent of customers of various partner companies.",
   "main": "/src/index.js",
   "scripts": {
