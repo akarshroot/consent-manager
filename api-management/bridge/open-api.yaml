@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Bridge
+  description: |-
+    This repo contains the source code for the backend of project — consent-manager. Main aim of this server is to facilitate CRUD operations to concurrently maintain the record for consent of customers of various partner companies.
+servers:
+  - url: https://thebridge.render.com
+paths:
+  /entity/register:
+    post:
+      tags:
+        - auth
+      summary: To create a new entity
+      description: Create a new entity using existing master credentials.
+      operationId: post-v1-auth-entity-register
+      parameters:
+        - name: source
+          in: query
+          description: 'Source of registration'
+          required: false
+          schema:
+            type: string
+            example: self
+      requestBody:
+        description: Create a new entity
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityRegister'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Failed operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    EntityRegister:
+      type: object
+      properties:
+        username:
+          type: string
+          example: test_user
+        password:
+          type: string
+          example: VeryStr0ngP@ssw0rd123
+        write:
+          type: boolean
+          example: false
+    SuccessResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          example: {}
+        is_success:
+          type: boolean
+          example: true
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Error has occured.
+        is_success:
+          type: boolean
+          example: false

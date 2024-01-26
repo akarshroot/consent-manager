@@ -32,11 +32,11 @@ const consent = async ({ clientPolicyId, uid, timestamp, partner }) => {
   }
 };
 
-const fetchConsent = async ({ uid, partner, clientPolicyId = '' }) => {
+const fetchConsent = async ({ uid, partner, clientPolicyId }) => {
   const { Consent } = models;
   let data;
   try {
-    if (clientPolicyId !== '') {
+    if (clientPolicyId) {
       data = await Consent.findOne({ clientPolicyId, uid }, { clientPolicyId: 1, uid: 1, timestamp: 1, _id: 0 });
     } else {
       data = await Consent.find({ partner, uid }, { clientPolicyId: 1, uid: 1, timestamp: 1, _id: 0 });
@@ -49,7 +49,7 @@ const fetchConsent = async ({ uid, partner, clientPolicyId = '' }) => {
 };
 
 module.exports = {
-  postPolicy,
   consent,
+  postPolicy,
   fetchConsent,
 };

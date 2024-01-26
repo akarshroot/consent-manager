@@ -19,7 +19,7 @@ const consent = errorDecorator(async (req, _res, next) => {
 const fetchConsent = errorDecorator(async (req, _res, next) => {
   const { partner } = req.entityData;
   const { uid } = req.params;
-  const { policy_id:policyId = '' } = req.query;
+  const { policy_id: policyId } = req.query;
   const data = await service.fetchConsent({ clientPolicyId: policyId, uid, partner });
   next(data);
 });

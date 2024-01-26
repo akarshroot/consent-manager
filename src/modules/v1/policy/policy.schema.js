@@ -32,7 +32,7 @@ const fetchConsentSchema = joi.object().keys({
     uid: joi.string().required(),
   }),
   query: joi.object().keys({
-    policy_id: joi.string().optional(),
+    policy_id: joi.string(),
   }),
 });
 
