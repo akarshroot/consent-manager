@@ -17,6 +17,7 @@ const registerSchema = joi.object({
   body: joi.object().keys({
     username: joi.string().required(),
     password: joi.string().required(),
+    write: joi.boolean().required(),
   }),
   query: joi.object({
     source: joi.string().required(),

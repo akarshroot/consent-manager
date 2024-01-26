@@ -1,9 +1,7 @@
 const config = require('config');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const {
-  logger,
-} = require('./util/logger');
+const logger = require('./util/logger');
 const setupRoutes = require('./modules');
 const constants = require('./util/constants');
 
@@ -19,9 +17,8 @@ app.use(express.urlencoded({
   extended: true,
 }));
 
-app.use(require('morgan')('combined', {
-  stream: logger.stream,
-}));
+app.use(logger.successHandler);
+app.use(logger.errorHandler);
 
 app.use('/', setupRoutes());
 

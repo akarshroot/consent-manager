@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const boom = require('@hapi/boom');
 const { models } = require('../../../models');
-const { logger } = require('../../../util/logger');
+const logger = require('../../../util/logger');
 const constants = require('../../../util/constants');
 
 const postPolicy = async ({ partner, policyId, title, attributes }) => {

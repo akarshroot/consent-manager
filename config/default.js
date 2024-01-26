@@ -11,6 +11,12 @@ const config = {
       useUnifiedTopology: true,
     },
   },
+  LOGGER: {
+    LOG_INDENT: 4,
+    LOG_LEVEL: 'debug',
+    SILENT_LOGGER: false,
+    MORGAN_LOG_LEVEL: 'combined',
+  },
   MODULE: {
     AUTH: {
       JWT_PRIVATE_KEY: process.env.JWT_PRIVATE_KEY,

@@ -8,9 +8,11 @@ const constants = {
     },
   },
   HTTP_STATUS_CODES: {
-    INTERNAL_SERVER_ERROR: 500,
     OK: 200,
     NOT_FOUND: 404,
+    FORBIDDEN: 403,
+    BAD_REQUEST: 400,
+    INTERNAL_SERVER_ERROR: 500,
   },
   STANDARD_SUCCESS_MESSAGES: {
     CONSENT_POSTED: 'Consent Stored Successfully.',
