@@ -1,1 +1,1 @@
-## Bridge 1.0.7 (LTS)
+## Bridge 1.1.0 (LTS)

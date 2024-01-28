@@ -7,13 +7,12 @@ const dashboard = errorDecorator(async (req, _res, next) => {
   next(data);
 });
 
-const consent = errorDecorator(async (req, _res, next) => {
-  const { username, partner, permissions } = req.entityData;
-  const data = await service.consent({ username, partner, permissions });
+const storageSync = errorDecorator(async (req, _res, next) => {
+  const data = await service.storageSync();
   next(data);
 });
 
 module.exports = {
   dashboard,
-  consent,
+  storageSync,
 };

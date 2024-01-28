@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const PartnerSchema = new mongoose.Schema({
+  organization: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,

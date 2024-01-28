@@ -7,7 +7,7 @@ module.exports = function (schema) {
       allowUnknown: true,
     });
     if (result.error) {
-      throw boom.badData(result.error.toString());
+      throw boom.badRequest(result.error.toString());
     }
     Object.assign(req, result.value);
     return next();

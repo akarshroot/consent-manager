@@ -24,6 +24,20 @@ const PolicySchema = new mongoose.Schema({
     type: String,
     default: '',
   },
+  versionHistory: [
+    {
+      entityId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+      },
+      timestamp: {
+        type: Date,
+        immutable: true,
+        required: true,
+        default: Date.now(),
+      },
+    },
+  ],
   updatedAt: {
     type: Date,
     default: Date.now,

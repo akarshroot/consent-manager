@@ -11,7 +11,7 @@ const populateToken = errorDecorator(async (req, _res, next) => {
 const authenticate = errorDecorator(async (req, res, next) => {
   const { username, password } = req.body;
   const data = await service.authenticate({ username, password });
-  res.setHeader('Set-Cookie', `entity-token=${_.get(data, 'jwt')}`);
+  res.setHeader('Set-Cookie', `entity-token=${_.get(data, 'jwt')}; path=/;`);
   next(_.omit(data, 'jwt'));
 });
 

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const ConsentSchema = new mongoose.Schema({
-  policyId: {
+  policyAttributeId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  clientPolicyId: {
-    type: String,
+  expiry: {
+    type: Date,
     required: true,
   },
   partner: {
@@ -17,6 +17,12 @@ const ConsentSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+  },
+  metadata: {
+    source: {
+      type: String,
+      required: true,
+    },
   },
   timestamp: {
     type: Date,
@@ -35,6 +41,6 @@ const ConsentSchema = new mongoose.Schema({
   },
 });
 
-ConsentSchema.index({ policyId: 1, uid: 1, partner: 1 }, { unique: true });
-
+ConsentSchema.index({ uid: 1 });
+ConsentSchema.index({ policyAttributeId: 1 });
 module.exports = ConsentSchema;

@@ -3,8 +3,8 @@ const service = require('./policy.service');
 
 const postPolicy = errorDecorator(async (req, _res, next) => {
   const { partner } = req.entityData;
-  const { policyId, title, attributes } = req.body;
-  const data = await service.postPolicy({ partner, policyId, title, attributes });
+  const { policyId, title, attributes, expiry } = req.body;
+  const data = await service.postPolicy({ partner, policyId, title, attributes, expiry });
   next(data);
 });
 
